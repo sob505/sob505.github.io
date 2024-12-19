@@ -9,6 +9,7 @@
         body {
             display: flex;
             justify-content: center;
+            align-items: center;
             /*height: 100vh;*/
             background-color: #FFAADC; 
             font-family: Arial, sans-serif; /* Optional styling for text */
@@ -17,6 +18,7 @@
         dotlottie-player {
             width: 80%;
             height: auto;
+            cursor: pointer;
         }
 
         @keyframes example {
@@ -40,14 +42,13 @@
     </style>
 </head>
 <body>
-    <dotlottie-player src="https://lottie.host/c9fa5772-6cdf-45da-9ccc-8186cfd45395/c9kINIvgGs.lottie" 
+    <dotlottie-player 
+        id="lottie"
+        src="https://lottie.host/c9fa5772-6cdf-45da-9ccc-8186cfd45395/c9kINIvgGs.lottie" 
         background="transparent" 
         speed="1" 
-        
-        loop autoplay>  
+        loop>  
     </dotlottie-player>
-    <h1>Hello, World!</h1>
-    <p>This page has a background color set with a hex code.</p>
     <!-- The box to animate -->
     <div class="animated-box" id="box"></div>
 
@@ -55,6 +56,17 @@
         // Get the box element
         const box = document.getElementById('box');
 
+        const lottiePlayer = document.getElementById('lottie');
+
+         // Add a click event listener to start/stop the animation
+        lottiePlayer.addEventListener('click', () => {
+            if (lottiePlayer.isPaused) {
+                lottiePlayer.play(); // Start the animation
+            } else {
+                lottiePlayer.pause(); // Pause the animation
+            }
+        });
+        lottiePlayer.pause();
         // Toggle animation on click
         box.addEventListener('click', () => {
             box.classList.toggle('animate'); // Add/remove the 'animate' class
