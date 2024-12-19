@@ -64,8 +64,7 @@
         id="lottie"
         src="https://lottie.host/c9fa5772-6cdf-45da-9ccc-8186cfd45395/c9kINIvgGs.lottie" 
         background="transparent" 
-        speed="1" 
-        loop>  
+        speed="1">  
     </dotlottie-player>
     <!-- The box to animate -->
     <div class="animated-box" id="box"></div>
@@ -76,6 +75,9 @@
          // Add a click event listener to start/stop the animation
         lottiePlayer.addEventListener('click', () => {
             lottiePlayer.play(); // Start the animation
+        });
+        lottiePlayer.addEventListener('complete',() => {
+            window.location.href = "https://sob505.github.io/main.html";
         });
         //lottiePlayer.pause();
     </script>
