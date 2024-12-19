@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Background Color Example</title>
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <style>
         body {
             display: flex;
@@ -60,15 +59,17 @@
 </head>
 <a href="https://sob505.github.io/main.html" class="button">Go to Another Page</a>
 <body>
+    <dotlottie-wc src="https://lottie.host/a318951e-52c7-4070-983f-95ff091efc42/jdh3WT98L2.lottie" autoplay loop></dotlottie-wc>
     <dotlottie-player 
         id="lottie"
-        src="https://lottie.host/c9fa5772-6cdf-45da-9ccc-8186cfd45395/c9kINIvgGs.lottie" 
+        src="https://lottie.host/a318951e-52c7-4070-983f-95ff091efc42/jdh3WT98L2.lottie"
         background="transparent" 
         speed="1">  
     </dotlottie-player>
     <!-- The box to animate -->
     <div class="animated-box" id="box"></div>
 
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
     <script>
         const lottiePlayer = document.getElementById('lottie');
 
