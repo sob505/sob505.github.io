@@ -53,9 +53,6 @@
     <div class="animated-box" id="box"></div>
 
     <script>
-        // Get the box element
-        const box = document.getElementById('box');
-
         const lottiePlayer = document.getElementById('lottie');
 
          // Add a click event listener to start/stop the animation
@@ -67,6 +64,10 @@
             }
         });
         lottiePlayer.pause();
+    </script>
+    <script>
+        // Get the box element
+        const box = document.getElementById('box');
         // Toggle animation on click
         box.addEventListener('click', () => {
             box.classList.toggle('animate'); // Add/remove the 'animate' class
