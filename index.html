@@ -18,12 +18,26 @@
             width: 750px;
             height: 750px;
         }
+
+        @keyframes example {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(100px); }
+            100% { transform: translateX(0); }
+        }
+
+        .animated-box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation: example 2s infinite;
+        }
     </style>
 </head>
 <body>
     <dotlottie-player src="https://lottie.host/c9fa5772-6cdf-45da-9ccc-8186cfd45395/c9kINIvgGs.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
     <h1>Hello, World!</h1>
     <p>This page has a background color set with a hex code.</p>
+    <div class="animated-box"></div>
 </body>
 </html>
 
