@@ -17,37 +17,35 @@
             height: 100vh; /* Make each section take up full height */
         }
 
-        /* Parallax Backgrounds */
-        .parallax-1 {
-            background-image: url('https://stockimages.org/wp-content/uploads/2020/10/bigstock-Photography-Concept-African-A-381364544.jpg');
+        /* Parallax Image Styling */
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%; /* Half the width of the viewport */
+            height: 100%;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100%;
+            z-index: 0; /* Keeps the background image in the background */
         }
 
-        .parallax-2 {
-            background-image: url('http://cdn.shopify.com/s/files/1/0533/2089/files/free-stock-photography-unsplash.jpg?v=1512762641');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        /* Text Area Styling */
+        .text-area {
+            position: relative;
+            z-index: 1; /* Ensures the text is in front of the image */
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.7);
+            font-size: 1.5rem;
+            width: 50%; /* Half the width of the viewport */
             height: 100%;
-        }
-
-        .parallax-3 {
-            background-image: url('https://www.plannthat.com/wp-content/uploads/2018/07/25-Stock-Photo-Sites.jpeg');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 100%;
+            overflow-y: auto;
         }
 
         /* Content Section Style */
         .content {
-            height: 100vh; /* Content area takes full height */
+            height: 50%; /* Content area takes full height */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -66,29 +64,41 @@
     </style>
 </head>
 <body>
-    <!-- Parallax Section 1 -->
-    <div class="section parallax-1">
-        <div class="section-title">Section 1 - Parallax Image 1</div>
+    <!-- Parallax Section 1 with Image and Text Area -->
+    <div class="section">
+        <div class="parallax" style="background-image: url('https://stockimages.org/wp-content/uploads/2020/10/bigstock-Photography-Concept-African-A-381364544.jpg');"></div>
+        <div class="text-area">
+            <div class="section-title">Section 1 - Parallax Image 1</div>
+            <p>This is the text content that scrolls with the image. You can add as much content as you want here, and it will scroll in sync with the image background.</p>
+        </div>
     </div>
 
-    <!-- Content Section -->
+    <!-- Content Section (scrolls normally) -->
     <div class="content">
-        <p>This is some content over the parallax background.</p>
+        <p>This is some content over the parallax background. It scrolls normally and is not affected by the parallax effect.</p>
     </div>
 
-    <!-- Parallax Section 2 -->
-    <div class="section parallax-2">
-        <div class="section-title">Section 2 - Parallax Image 2</div>
+    <!-- Parallax Section 2 with Image and Text Area -->
+    <div class="section">
+        <div class="parallax" style="background-image: url('http://cdn.shopify.com/s/files/1/0533/2089/files/free-stock-photography-unsplash.jpg?v=1512762641');"></div>
+        <div class="text-area">
+            <div class="section-title">Section 2 - Parallax Image 2</div>
+            <p>More content with a different parallax image. The text will remain in sync with the scrolling background.</p>
+        </div>
     </div>
 
-    <!-- Content Section -->
+    <!-- Content Section (scrolls normally) -->
     <div class="content">
-        <p>More content over the second background.</p>
+        <p>Additional content section to show scrolling behavior.</p>
     </div>
 
-    <!-- Parallax Section 3 -->
-    <div class="section parallax-3">
-        <div class="section-title">Section 3 - Parallax Image 3</div>
+    <!-- Parallax Section 3 with Image and Text Area -->
+    <div class="section">
+        <div class="parallax" style="background-image: url('https://www.plannthat.com/wp-content/uploads/2018/07/25-Stock-Photo-Sites.jpeg');"></div>
+        <div class="text-area">
+            <div class="section-title">Section 3 - Parallax Image 3</div>
+            <p>Even more content over a new parallax background. Scroll through the text content, which is in sync with the background image.</p>
+        </div>
     </div>
     
 </body>
