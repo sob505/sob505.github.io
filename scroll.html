@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Parallax Scrolling</title>
+    <title>Multiple Parallax Scrolling</title>
     <style>
         body, html {
             margin: 0;
@@ -11,17 +11,43 @@
             height: 100%;
         }
 
-        .parallax {
+        /* General Section Style */
+        .section {
             position: relative;
-            background-image: url('https://via.placeholder.com/1920x1080');
+            height: 100vh; /* Make each section take up full height */
+        }
+
+        /* Parallax Backgrounds */
+        .parallax-1 {
+            background-image: url('https://stockimages.org/wp-content/uploads/2020/10/bigstock-Photography-Concept-African-A-381364544.jpg');
+            background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100vh;
+            height: 100%;
         }
 
+        .parallax-2 {
+            background-image: url('http://cdn.shopify.com/s/files/1/0533/2089/files/free-stock-photography-unsplash.jpg?v=1512762641');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .parallax-3 {
+            background-image: url('https://www.plannthat.com/wp-content/uploads/2018/07/25-Stock-Photo-Sites.jpeg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+
+        /* Content Section Style */
         .content {
-            height: 100vh;
+            height: 100vh; /* Content area takes full height */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -31,27 +57,39 @@
             text-align: center;
         }
 
-        .section {
+        .section-title {
             padding: 50px;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <div class="parallax"></div>
+    <!-- Parallax Section 1 -->
+    <div class="section parallax-1">
+        <div class="section-title">Section 1 - Parallax Image 1</div>
+    </div>
+
+    <!-- Content Section -->
     <div class="content">
         <p>This is some content over the parallax background.</p>
     </div>
-    <div class="section" style="background-color: #ffcccb;">Section 1</div>
-    <div class="section" style="background-color: #cce7ff;">Section 2</div>
 
-    <script>
-        window.addEventListener('scroll', function() {
-            let scrolled = window.scrollY;
-            let parallax = document.querySelector('.parallax');
-            parallax.style.backgroundPosition = 'center ' + (scrolled * 0.5) + 'px'; // Adjust the multiplier for speed
-        });
-    </script>
+    <!-- Parallax Section 2 -->
+    <div class="section parallax-2">
+        <div class="section-title">Section 2 - Parallax Image 2</div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <p>More content over the second background.</p>
+    </div>
+
+    <!-- Parallax Section 3 -->
+    <div class="section parallax-3">
+        <div class="section-title">Section 3 - Parallax Image 3</div>
+    </div>
+    
 </body>
 </html>
