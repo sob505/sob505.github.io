@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Parallax Scrolling</title>
+    <title>Advanced Parallax Scrolling</title>
     <style>
         body, html {
             margin: 0;
@@ -11,20 +11,17 @@
             height: 100%;
         }
 
-        /* Parallax section */
         .parallax {
             position: relative;
-            background-image: url('https://stockimages.org/wp-content/uploads/2020/10/bigstock-Photography-Concept-African-A-381364544.jpg'); /* Change to your background image */
-            background-attachment: fixed; /* Keeps the background in place while scrolling */
+            background-image: url('https://via.placeholder.com/1920x1080');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100vh; /* Height of the parallax section */
+            height: 100vh;
         }
 
-        /* Content section */
         .content {
-            height: 100vh; /* Content area height */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,20 +39,19 @@
     </style>
 </head>
 <body>
-    <!-- Parallax Section -->
     <div class="parallax"></div>
-
-    <!-- Content Section -->
     <div class="content">
         <p>This is some content over the parallax background.</p>
     </div>
-
-    <!-- Additional Sections -->
     <div class="section" style="background-color: #ffcccb;">Section 1</div>
     <div class="section" style="background-color: #cce7ff;">Section 2</div>
-    <div class="section" style="background-color: #d1f7d1;">Section 3</div>
-    
-    <!-- Parallax Section Again -->
-    <div class="parallax"></div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            let scrolled = window.scrollY;
+            let parallax = document.querySelector('.parallax');
+            parallax.style.backgroundPosition = 'center ' + (scrolled * 0.5) + 'px'; // Adjust the multiplier for speed
+        });
+    </script>
 </body>
 </html>
