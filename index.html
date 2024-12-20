@@ -73,7 +73,7 @@
     </dotlottie-wc>
     <dotlottie-player id="player" src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/xDAoyeY45b.lottie"> </dotlottie-player>
     <script>
-        const lottiePlayer = document.getElementById('lottie');
+        /*const lottiePlayer = document.getElementById('lottie');
          // Add a click event listener to start/stop the animation
         lottiePlayer.addEventListener('click', () => {
             console.log('Lottie clicked!');
@@ -81,7 +81,7 @@
         });
         lottiePlayer.addEventListener('complete',() => {
             window.location.href = "https://sob505.github.io/main.html";
-        });
+        }); */
 
         const player = document.getElementById('player');
 
@@ -92,11 +92,16 @@
             actions: [
                 {
                     type: "click",
-                    forceFlag: true
+                    forceFlag: true,
+                    callback: () => {
+                        window.location.href = "https://sob505.github.io/main.html";
+                    }
                 }
             ]
             });
         });
+
+        
         /*setTimeout(() => {
             // Redirect to the desired page after 4 sec
             window.location.href = "https://sob505.github.io/scroll.html"; 
