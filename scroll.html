@@ -1,71 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parallax Scrolling Effect</title>
-  <link rel="stylesheet" href="styles.css">
-  
-  <style>
-      /* styles.css */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    
-    .parallax {
-      position: relative;
-      height: 100vh; /* Full screen height */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-    
-    #parallax1 {
-      background-image: url('https://stockimages.org/wp-content/uploads/2020/10/bigstock-Photography-Concept-African-A-381364544.jpg');
-    }
-    
-    #parallax2 {
-      background-image: url('https://bestinau.com.au/wp-content/uploads/2019/01/free-images.jpg');
-    }
-    
-    .content {
-      text-align: center;
-      padding: 50px 20px;
-      background-color: #fff;
-      color: #333;
-    }
-    
-    h1, h2 {
-      margin: 0;
-    }
-    
-    section {
-      padding: 60px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Parallax Scrolling</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Parallax section */
+        .parallax {
+            position: relative;
+            background-image: url('https://stockimages.org/wp-content/uploads/2020/10/bigstock-Photography-Concept-African-A-381364544.jpg'); /* Change to your background image */
+            background-attachment: fixed; /* Keeps the background in place while scrolling */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh; /* Height of the parallax section */
+        }
+
+        /* Content section */
+        .content {
+            height: 100vh; /* Content area height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            font-size: 2rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .section {
+            padding: 50px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="parallax" id="parallax1"></div>
-  <section class="content">
-    <h1>Welcome to My Website</h1>
-    <p>This is a simple page with a parallax scrolling effect.</p>
-  </section>
-  <div class="parallax" id="parallax2"></div>
-  <section class="content">
-    <h2>Another Section</h2>
-    <p>More content below the parallax sections.</p>
-  </section>
-  <script>
-    // script.js (optional for dynamic parallax effect)
-window.addEventListener('scroll', function() {
-  var scrollPosition = window.scrollY;
+    <!-- Parallax Section -->
+    <div class="parallax"></div>
 
-  // Adjust the background position to create the parallax effect
-  document.getElementById('parallax1').style.backgroundPosition = 'center ' + (scrollPosition * 0.5) + 'px';
-  document.getElementById('parallax2').style.backgroundPosition = 'center ' + (scrollPosition * 0.8) + 'px';
-});
+    <!-- Content Section -->
+    <div class="content">
+        <p>This is some content over the parallax background.</p>
+    </div>
 
-  </script>
+    <!-- Additional Sections -->
+    <div class="section" style="background-color: #ffcccb;">Section 1</div>
+    <div class="section" style="background-color: #cce7ff;">Section 2</div>
+    <div class="section" style="background-color: #d1f7d1;">Section 3</div>
+    
+    <!-- Parallax Section Again -->
+    <div class="parallax"></div>
 </body>
 </html>
