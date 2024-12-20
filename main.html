@@ -56,7 +56,15 @@
             text-align: center;
         }
 
+        /* Container for the rectangle and buttons */
+        .container {
+            position: relative; /* Position context for absolute positioning */
+            width: 80%; /* Container width */
+            height: 400px; /* Container height */
+        }
+
         .rectangle {
+            position: absolute;
             width: 100vw;   /* Set width to 100% of the viewport */
             height: 100vh;  /* Set height to 100% of the viewport */
             object-fit: contain;
@@ -65,15 +73,16 @@
     </style>
 </head>
 <body>
-    
-    <div class="button-grid">
-        <a href="https://sob505.github.io/index.html"><button><span>Return</span></button></a>
-        <button><span>Button 2</span></button>
-        <button><span>Button 3</span></button>
-        <button><span>Button 4</span></button>
-        <button><span>Button 5</span></button>
-        <button><span>Button 6</span></button>
+    <div class="container">      
+        <div class="rectangle"></div>
+        <div class="button-grid">
+            <a href="https://sob505.github.io/index.html"><button><span>Return</span></button></a>
+            <button><span>Button 2</span></button>
+            <button><span>Button 3</span></button>
+            <button><span>Button 4</span></button>
+            <button><span>Button 5</span></button>
+            <button><span>Button 6</span></button>
+        </div>
     </div>
-    <div class="rectangle"></div>
 </body>
 </html>
