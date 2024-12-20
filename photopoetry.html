@@ -1,9 +1,43 @@
-<style>
-  .photo {
-    width: 100%; /* Half the width of the viewport */
-    height: 100%;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Gallery</title>
+  <style>
+    body {
+      mrgin: 0;
+      padding: 0;
+    }
+    .photo {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+      /* Image styling */
+      .photo img {
+          width: 100%; /* Make the image take up the entire width of the container */
+          height: auto; /* Maintain the aspect ratio of the image */
+          object-fit: cover; /* Ensures the image covers the space appropriately */
+      }
+  </style>
+</head>
 <body>
-  <div class="photo" style="background-image: url('https://github.com/sob505/sob505.github.io/raw/main/images/Photopoetry-1.jpg');"></div>
+    <div class="photo">
+      <!-- First Image -->
+      <img src="https://github.com/sob505/sob505.github.io/raw/main/images/Photopoetry-1.jpg" alt="Image 1">
+      
+      <!-- Second Image -->
+      <img src="https://github.com/sob505/sob505.github.io/raw/main/images/Photopoetry-2.jpg" alt="Image 2">
+      
+      <!-- Third Image -->
+      <img src="https://github.com/sob505/sob505.github.io/raw/main/images/Photopoetry-3.jpg" alt="Image 3">
+      
+      <!-- Fourth Image -->
+      <img src="https://github.com/sob505/sob505.github.io/raw/main/images/Photopoetry-4.jpg" alt="Image 4">
+
+      <img src="https://github.com/sob505/sob505.github.io/raw/main/images/Photopoetry-5.jpg" alt="Image 4">
+    </div>
 </body>
+</html>
