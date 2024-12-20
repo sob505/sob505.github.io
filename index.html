@@ -70,19 +70,21 @@
         speed="1">
     </dotlottie-wc>
     <script>
-        const lottiePlayer = document.getElementById('lottie');
-         // Add a click event listener to start/stop the animation
-        lottiePlayer.addEventListener('click', () => {
-            console.log('Lottie clicked!');
-            lottiePlayer.play(); // Start the animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const lottiePlayer = document.getElementById('lottie');
+             // Add a click event listener to start/stop the animation
+            lottiePlayer.addEventListener('click', () => {
+                console.log('Lottie clicked!');
+                lottiePlayer.play(); // Start the animation
+            });
+            lottiePlayer.addEventListener('complete',() => {
+                window.location.href = "https://sob505.github.io/main.html";
+            });
+            //setTimeout(() => {
+                // Redirect to the desired page after 5 seconds
+            //    window.location.href = "https://sob505.github.io/main.html"; 
+            //}, 4000);
         });
-        lottiePlayer.addEventListener('complete',() => {
-            window.location.href = "https://sob505.github.io/main.html";
-        });
-        //setTimeout(() => {
-            // Redirect to the desired page after 5 seconds
-        //    window.location.href = "https://sob505.github.io/main.html"; 
-        //}, 4000);
     </script>
     <script>
         // Get the box element
