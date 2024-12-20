@@ -66,8 +66,7 @@
     <dotlottie-wc 
         id="lottie" 
         src="https://lottie.host/9f01ec8d-bf97-49df-bdd4-1e19e9606e95/1EDTLjycaZ.lottie"
-        background="transparent"
-        speed="1">
+        autoplay>
     </dotlottie-wc>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -80,10 +79,10 @@
             lottiePlayer.addEventListener('complete',() => {
                 window.location.href = "https://sob505.github.io/main.html";
             });
-            //setTimeout(() => {
-                // Redirect to the desired page after 5 seconds
-            //    window.location.href = "https://sob505.github.io/main.html"; 
-            //}, 4000);
+            setTimeout(() => {
+                // Redirect to the desired page after 4 sec
+                window.location.href = "https://sob505.github.io/main.html"; 
+            }, 4000);
         });
     </script>
     <script>
