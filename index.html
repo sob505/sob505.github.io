@@ -71,6 +71,7 @@
         id="lottie" 
         src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/xDAoyeY45b.lottie">
     </dotlottie-wc>
+    <dotlottie-player id="player" src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/xDAoyeY45b.lottie"> </dotlottie-player>
     <script>
         const lottiePlayer = document.getElementById('lottie');
          // Add a click event listener to start/stop the animation
@@ -81,10 +82,25 @@
         lottiePlayer.addEventListener('complete',() => {
             window.location.href = "https://sob505.github.io/main.html";
         });
-        setTimeout(() => {
+
+        const player = document.getElementById('player');
+
+        player.addEventListener('ready', () => {
+          LottieInteractivity.create({
+          player: player.getLottie(),
+          mode:"cursor",
+            actions: [
+                {
+                    type: "click",
+                    forceFlag: true
+                }
+            ]
+            });
+        });
+        /*setTimeout(() => {
             // Redirect to the desired page after 4 sec
             window.location.href = "https://sob505.github.io/scroll.html"; 
-        }, 4000);
+        }, 4000); */
     </script>
     <audio autoplay="true" src="sounds/camera-click.mp3"></audio>
     <script>
