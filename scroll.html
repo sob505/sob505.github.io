@@ -31,29 +31,26 @@
             z-index: 0; /* Keeps the background image in the background */
         }
 
-        /* Text Area Styling */
-        .text-area {
-            position: relative;
-            z-index: 1; /* Ensures the text is in front of the image */
-            padding: 50px;
-            background-color: rgba(255, 255, 255, 0.7);
-            font-size: 1.5rem;
-            width: 100%; /* Half the width of the viewport */
-            height: 100%;
-            opacity: 0;
-            overflow-y: auto;
+        /* Text Overlay Styling */
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the text */
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Optional shadow for better text visibility */
+            text-align: center;
+            z-index: 1; /* Ensure the text is in front of the background image */
         }
 
-        /* Content Section Style */
         .content {
-            height: 50%; /* Content area takes full height */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
+            padding: 50px;
             font-size: 2rem;
             color: #333;
             text-align: center;
+            background-color: #fff;
         }
 
         .section-title {
