@@ -61,16 +61,19 @@
         .container {
             position: relative; /* Position context for absolute positioning */
             width: 80%; /* Container width */
-            height: 400px; /* Container height */
+            max-width: 800px;
+            height: auto; /* Container height */
         }
 
         .rectangle {
             position: absolute;
             top: 0;
-            width: 100vw;   /* Set width to 100% of the viewport */
-            height: 100vh;  /* Set height to 100% of the viewport */
+            width: 100%;   /* Set width to 100% of the viewport */
+            padding-top: 40%;
+            /*height: 100vh;  /* Set height to 100% of the viewport */
             object-fit: contain;
             background-color: #ffe4fc;
+            display: block;
         }
     </style>
 </head>
