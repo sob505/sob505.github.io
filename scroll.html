@@ -5,45 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parallax Scrolling Effect</title>
   <link rel="stylesheet" href="styles.css">
+  
+  <style>
+      /* styles.css */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    .parallax {
+      position: relative;
+      height: 100vh; /* Full screen height */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    
+    #parallax1 {
+      background-image: url('path/to/your-image1.jpg');
+    }
+    
+    #parallax2 {
+      background-image: url('path/to/your-image2.jpg');
+    }
+    
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #fff;
+      color: #333;
+    }
+    
+    h1, h2 {
+      margin: 0;
+    }
+    
+    section {
+      padding: 60px 0;
+    }
+  </style>
 </head>
-<style>
-  /* styles.css */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.parallax {
-  position: relative;
-  height: 100vh; /* Full screen height */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-#parallax1 {
-  background-image: url('path/to/your-image1.jpg');
-}
-
-#parallax2 {
-  background-image: url('path/to/your-image2.jpg');
-}
-
-.content {
-  text-align: center;
-  padding: 50px 20px;
-  background-color: #fff;
-  color: #333;
-}
-
-h1, h2 {
-  margin: 0;
-}
-
-section {
-  padding: 60px 0;
-}
-</style> 
 <body>
   <div class="parallax" id="parallax1"></div>
   <section class="content">
