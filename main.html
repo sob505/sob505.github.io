@@ -21,6 +21,7 @@
         .button-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+            position: absolute;
             gap: 20px; /* Spacing between buttons */
             max-width: 600px; /* Maximum width of the grid */
             padding: 20px;
@@ -65,6 +66,7 @@
 
         .rectangle {
             position: absolute;
+            top: 0;
             width: 100vw;   /* Set width to 100% of the viewport */
             height: 100vh;  /* Set height to 100% of the viewport */
             object-fit: contain;
@@ -73,7 +75,7 @@
     </style>
 </head>
 <body>
-    <div class="container">      
+    <div class="container">
         <div class="rectangle"></div>
         <div class="button-grid">
             <a href="https://sob505.github.io/index.html"><button><span>Return</span></button></a>
