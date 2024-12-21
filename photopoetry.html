@@ -17,18 +17,15 @@
         }
           /* Image styling */
         .photo img {
-            height: 100vh; /* Make the image take up the entire width of the container */
+            height: 100vh; /* Make the height take up the entire width of the container */
             width: auto; /* Maintain the aspect ratio of the image */
-            max-width: 100%;
-            object-fit: contain; /* Ensures the image covers the space appropriately */
+            max-width: 100%; /* Unless width is larger than viewport, then prioritize width */
+            object-fit: contain; 
             opacity: 0;
-            transition: opacity 1s ease-out, transform 1s ease-out;
-            z-index: 1; /* Ensure the text is in front of the background image */
+            transition: opacity 1s ease-out, transform 1s ease-out; /* Fading */
         }
-
         .photo img.visible {
             opacity: 1;
-            position: translateY(0);
         }
   </style>
 </head>
@@ -40,26 +37,20 @@
       <img src="https://github.com/sob505/sob505.github.io/raw/main/images/Photopoetry-4.jpg" alt="Image 4">
       <img src="https://github.com/sob505/sob505.github.io/raw/main/images/Photopoetry-5.jpg" alt="Image 4">
     </div>
-    <script>
-        // Get all the text elements
-        const textElements = document.querySelectorAll('.photo img');
-
-        // Create an IntersectionObserver
+    <script> // Fading effect
+        const textElements = document.querySelectorAll('.photo img'); // Get image
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Add the 'visible' class when the text enters the viewport
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('visible'); // Fade in
                 } else {
-                    entry.target.classList.remove('visible');
+                    entry.target.classList.remove('visible'); // Fade iout
                 }
             });
         }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
+            threshold: 0.20 // Trigger when 20% of the element is visible
         });
-
-        // Observe each text element
-        textElements.forEach(img => observer.observe(img));
+        textElements.forEach(img => observer.observe(img)); // Observe each text element
     </script>
 </body>
 </html>
