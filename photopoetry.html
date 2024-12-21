@@ -11,7 +11,6 @@
         .photo {
             display: flex;
             flex-direction: column;
-            /*height: 100vh;*/
             gap: 20px;
             justify-content: center;
             align-items: center;
@@ -27,7 +26,7 @@
             z-index: 1; /* Ensure the text is in front of the background image */
         }
 
-        .photo.visible {
+        .photo img.visible {
             opacity: 1;
             position: translateY(0);
         }
@@ -43,7 +42,7 @@
     </div>
     <script>
         // Get all the text elements
-        const textElements = document.querySelectorAll('.photo');
+        const textElements = document.querySelectorAll('.photo img');
 
         // Create an IntersectionObserver
         const observer = new IntersectionObserver((entries) => {
@@ -60,7 +59,7 @@
         });
 
         // Observe each text element
-        textElements.forEach(el => observer.observe(el));
+        textElements.forEach(img => observer.observe(img));
     </script>
 </body>
 </html>
