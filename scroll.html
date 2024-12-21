@@ -173,28 +173,29 @@
         <div class="text">
             <div class="section-title">Section 2 - Parallax Image 2</div>
             <p>More content with a different parallax image. The text will remain in sync with the scrolling background.</p>
-            <script>
-                // Get all the text elements
-                const textElements = document.querySelectorAll('.text');
-        
-                // Create an IntersectionObserver
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Add the 'visible' class when the text enters the viewport
-                            entry.target.classList.add('visible');
-                        } else {
-                            entry.target.classList.remove('visible');
-                        }
-                    });
-                }, {
-                    threshold: 0.1 // Trigger when 10% of the element is visible
-                });
-        
-                // Observe each text element
-                textElements.forEach(el => observer.observe(el));
-            </script>
         </div>
+        <script>
+            // Get all the text elements
+            const textElements = document.querySelectorAll('.text');
+    
+            // Create an IntersectionObserver
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add the 'visible' class when the text enters the viewport
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+    
+            // Observe each text element
+            textElements.forEach(el => observer.observe(el));
+        </script>
+
     </div>
 
     <!-- Content Section (scrolls normally) -->
