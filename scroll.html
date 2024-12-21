@@ -80,7 +80,9 @@
 
         .text.visible {
             opacity: 1;
-            transform: translateY(0);
+        }
+        .text:not(.visible) {
+            opacity: 0;
         }
 
         .content {
@@ -146,7 +148,8 @@
                         if (entry.isIntersecting) {
                             // Add the 'visible' class when the text enters the viewport
                             entry.target.classList.add('visible');
-                        }
+                        } else {
+                            entry.target.classList.remove('visible');
                     });
                 }, {
                     threshold: 0.1 // Trigger when 10% of the element is visible
