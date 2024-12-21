@@ -133,26 +133,19 @@
                         lottieInstance.pause(); // Stop the animation
                     });
                 });
-
-                /*const parallax = document.querySelector('.parallax');
+                // Parallax effect for dotlottie-player
+                const lottiePlayer = document.querySelector('.parallax dotlottie-player');
             
-                    // Scroll event listener for the parallax effect
-                    window.addEventListener('scroll', () => {
-                        const scrollPosition = window.scrollY;
-                        const parallaxSpeed = 0.5; // Adjust the speed of the parallax effect (higher = slower)
-            
-                        // Apply the parallax effect by adjusting the transform property
-                        parallax.style.transform = `translateY(${scrollPosition * parallaxSpeed}px)`;
-            
-                        // Optionally, play the animation based on scroll position
-                        const scrollPercentage = (scrollPosition / document.documentElement.scrollHeight) * 100;
-                        if (scrollPercentage > 30) { // Start animation after 30% scroll
-                            lottieInstance.play();
-                        } 
-                    });
-                });*/
+                // Add scroll event listener
+                window.addEventListener('scroll', () => {
+                    const scrollPosition = window.scrollY; // Current scroll position
+                    const speed = 0.5; // Adjust parallax speed
+                    if (lottiePlayer) {
+                        // Adjust the transform property for parallax effect
+                        lottiePlayer.style.transform = `translateY(${scrollPosition * speed}px)`;
+                    }
+                });
             </script>
-        <!--style="background-image: url('https://github.com/sob505/sob505.github.io/raw/main/images/Desktop%20-%207.png');>-->
         <div class="text">
             <p style="color:#ce9934; font-family:IM Fell English", serif;">Photopoetry</p>
         </div>
