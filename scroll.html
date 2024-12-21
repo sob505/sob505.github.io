@@ -98,15 +98,33 @@
         <a href="https://sob505.github.io/photopoetry.html" class="parallax-link">   
         <!--<dotlottie-player src="https://lottie.host/1432035e-6d40-45a9-82e4-6411ceafe657/Tu98kFOl5b.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player> -->
         <div class="parallax">
-            <dotlottie-player                
-            src="https://lottie.host/1432035e-6d40-45a9-82e4-6411ceafe657/Tu98kFOl5b.lottie""
-            background="transparent"
-            autoplay
-            loop>
+            <dotlottie-player
+                id="lottie"
+                src="https://lottie.host/1432035e-6d40-45a9-82e4-6411ceafe657/Tu98kFOl5b.lottie"
+                background="transparent"
+                loop>
           </dotlottie-player>
+            <script>
+        const lottiePlayer = document.getElementById('lottie');
+        // Wait for the player to load
+        lottiePlayer.addEventListener('ready', () => {
+            const lottieInstance = lottiePlayer.getLottie(); // Get the Lottie instance
+
+            lottieInstance.stop(); // Ensure it starts paused
+
+            // Play animation on hover
+            lottiePlayer.addEventListener('mouseenter', () => {
+                lottieInstance.play();
+            });
+
+            // Pause animation on mouse leave
+            lottiePlayer.addEventListener('mouseleave', () => {
+                lottieInstance.stop(); // Stop the animation
+            });
+        });
+    </script>
         <!--style="background-image: url('https://github.com/sob505/sob505.github.io/raw/main/images/Desktop%20-%207.png');>-->
         <div class="text-area">
-            <div class="section-title">Section 1 - Parallax Image 1</div>
             <p>Photopoetry</p>
         </div>
         </a>
