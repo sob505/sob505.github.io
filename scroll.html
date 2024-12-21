@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiple Parallax Scrolling</title>
+    <title>Project Gallery</title>
     <style>
         body, html {
             margin: 0;
@@ -95,8 +95,7 @@
     
     <!-- Parallax Section 1 with Image and Text Area -->
     <div class="section">
-        <a href="https://sob505.github.io/photopoetry.html" class="parallax-link">   
-        <!--<dotlottie-player src="https://lottie.host/1432035e-6d40-45a9-82e4-6411ceafe657/Tu98kFOl5b.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player> -->
+        <a href="https://sob505.github.io/photopoetry.html" class="parallax-link">
         <div class="parallax">
             <dotlottie-player
                 id="lottie"
@@ -109,17 +108,14 @@
         // Wait for the player to load
         lottiePlayer.addEventListener('ready', () => {
             const lottieInstance = lottiePlayer.getLottie(); // Get the Lottie instance
-
             lottieInstance.stop(); // Ensure it starts paused
-
             // Play animation on hover
             lottiePlayer.addEventListener('mouseenter', () => {
                 lottieInstance.play();
             });
-
             // Pause animation on mouse leave
             lottiePlayer.addEventListener('mouseleave', () => {
-                lottieInstance.stop(); // Stop the animation
+                lottieInstance.pause(); // Stop the animation
             });
         });
     </script>
