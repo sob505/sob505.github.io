@@ -9,10 +9,10 @@
             background-color: #ffe4fc;
         }
         .photo {
-            display: block;
-            /*flex-direction: column;*/
+            display: flex;
+            flex-direction: column;
             height: 100vh;
-            gap: 50px;
+            gap: 20px;
             justify-content: center;
             align-items: center;
         }
@@ -21,8 +21,6 @@
             height: 100%; /* Make the image take up the entire width of the container */
             width: auto; /* Maintain the aspect ratio of the image */
             object-fit: contain; /* Ensures the image covers the space appropriately */
-            justify-content: center;
-            align-items: center;
         }
   </style>
 </head>
