@@ -104,6 +104,22 @@
             autoplay
             loop>
           </dotlottie-player>
+            <script>
+        const lottiePlayer = document.getElementById('lottie');
+
+        // Pause the animation initially
+        lottiePlayer.pause();
+
+        // Play the animation on hover
+        lottiePlayer.addEventListener('mouseenter', () => {
+            lottiePlayer.play();
+        });
+
+        // Pause the animation when the mouse leaves
+        lottiePlayer.addEventListener('mouseleave', () => {
+            lottiePlayer.pause();
+        });
+    </script>
         <!--style="background-image: url('https://github.com/sob505/sob505.github.io/raw/main/images/Desktop%20-%207.png');>-->
         <div class="text-area">
             <div class="section-title">Section 1 - Parallax Image 1</div>
