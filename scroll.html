@@ -37,7 +37,7 @@
 
         /* Parallax Image Styling */
         .parallax {
-            position: relative;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%; /* Half the width of the viewport */
@@ -59,6 +59,7 @@
             object-fit: cover;
             transform: translateY(0);
             transition: transform 0.1s ease-out;
+            z-index: 1;
         }
 
         /* Text Overlay Styling */
