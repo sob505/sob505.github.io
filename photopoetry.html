@@ -12,14 +12,16 @@
         .photo {
             display: flex;
             flex-direction: column;
+            height: 100vh;
             gap: 20px;
-            width: 80%;
+            justify-content: center;
+            align-items: center;
         }
           /* Image styling */
         .photo img {
-            width: 100%; /* Make the image take up the entire width of the container */
-            height: auto; /* Maintain the aspect ratio of the image */
-            object-fit: cover; /* Ensures the image covers the space appropriately */
+            height: 100%; /* Make the image take up the entire width of the container */
+            width: auto; /* Maintain the aspect ratio of the image */
+            object-fit: contain; /* Ensures the image covers the space appropriately */
         }
   </style>
 </head>
