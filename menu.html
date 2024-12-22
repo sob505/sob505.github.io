@@ -74,6 +74,22 @@
             background-color: #ffe4fc;
             display: block;
         }
+
+                /* Style the navigation button */
+        .nav-button {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            outline: none;
+        }
+
+        .nav-button dotlottie-player {
+            width: 100%; /* Fit within the button */
+            height: 100%; /* Fit within the button */
+        }
     </style>
 </head>
 <body>
@@ -88,5 +104,41 @@
             <button><span>Button 6</span></button>
         </div>
     </div>
+    <!-- Navigation Button -->
+    <button class="nav-button" onclick="navigateToPage()">
+        <dotlottie-player 
+            id="navLottie" 
+            src="https://lottie.host/f4833d60-09e4-4df7-8337-3ade1a605c75/NCvZ9yPuj5.lottie" 
+            autoplay="false" 
+            loop="false" 
+            background="transparent">
+        </dotlottie-player>
+    </button>
+
+    <script>
+        const navLottie = document.getElementById('navLottie');
+
+        // Wait for the Lottie player to load
+        navLottie.addEventListener('ready', () => {
+            const lottieInstance = navLottie.getLottie(); // Get Lottie instance
+            lottieInstance.stop(); // Start paused
+            
+            // Play animation on hover
+            navLottie.addEventListener('mouseenter', () => {
+                lottieInstance.setDirection(1); // Forward direction
+                lottieInstance.play();
+            });
+
+            // Reverse animation on mouse leave
+            navLottie.addEventListener('mouseleave', () => {
+                lottieInstance.setDirection(-1); // Reverse direction
+                lottieInstance.play();
+            });
+        });
+
+        // Navigate to a page when the button is clicked
+        function navigateToPage() {
+            window.location.href = "https://sob505.github.io/photopoetry.html"; // Replace with your URL
+        }
 </body>
 </html>
