@@ -101,6 +101,10 @@
             font-size: 2rem;
             color: #fff;
         }
+
+        audio {
+            display: none;
+        }
     </style>
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
@@ -119,9 +123,12 @@
                     src="https://lottie.host/f4833d60-09e4-4df7-8337-3ade1a605c75/NCvZ9yPuj5.lottie"
                     background="transparent"
                     loop>
-              </dotlottie-player>
+                </dotlottie-player>
+            <!-- Set up audio -->
+            <audio id="splash" preload="auto" loop="true" src="sounds/splash.mp3"></audio>
             <script>
                 const lottiePlayer = document.getElementById('lottie');
+                const audioPlayer = document.getElementById('splash);
                 // Wait for the player to load
                 lottiePlayer.addEventListener('ready', () => {
                     const lottieInstance = lottiePlayer.getLottie(); // Get the Lottie instance
@@ -129,10 +136,12 @@
                     // Play animation on hover
                     lottiePlayer.addEventListener('mouseenter', () => {
                         lottieInstance.play();
+                        audioPlayer.play();
                     });
                     // Pause animation on mouse leave
                     lottiePlayer.addEventListener('mouseleave', () => {
                         lottieInstance.pause(); // Stop the animation
+                        audioPlayer.pause();
                     });
                 });
             </script>
