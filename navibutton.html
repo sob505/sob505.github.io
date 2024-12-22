@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation Menu Button</title>
-    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
+    <script src="https://unpkg.com/@dotlottie/web"></script>
     <style>
         body {
             margin: 0;
@@ -38,14 +38,14 @@
 <script type="module">
     import { playAnimationWithControl } from './animationHandler.mjs';
 
-    const animationUrl = 'https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd//73jCeWLVkz.lottie';
+    const animationUrl = 'https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/73jCeWLVkz.lottie';
     playAnimationWithControl(animationUrl, 'hover-animation');
 </script>
     <!-- Navigation Button -->
     <button class="nav-button" onclick="navigateToPage()">
         <dotlottie-wc 
             id="navLottie" 
-            src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd//73jCeWLVkz.lottie"
+            src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/73jCeWLVkz.lottie"
             autoplay="false" 
             loop="false" 
             background="transparent">
