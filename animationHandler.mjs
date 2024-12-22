@@ -9,3 +9,20 @@ export function playAnimation(animationUrl) {
     player.style.height = '200px'; // Set desired height
     document.body.appendChild(player);
 }
+
+export function playAnimationWithControl(animationUrl, containerId) {
+    const container = document.getElementById(containerId);
+    const player = document.createElement('dotlottie-player');
+    player.src = animationUrl;
+    player.loop = true;
+    player.style.width = '300px';
+    player.style.height = '300px';
+
+    // Add hover control
+    player.addEventListener('mouseenter', () => player.play());
+    player.addEventListener('mouseleave', () => player.pause());
+
+    // Add to the container
+    container.appendChild(player);
+}
+
