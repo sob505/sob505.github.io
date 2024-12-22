@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Menu Button</title>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5efe2;
+        }
+
+        /* Style the navigation button */
+        .nav-button {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            outline: none;
+        }
+
+        .nav-button dotlottie-player {
+            width: 100%; /* Fit within the button */
+            height: 100%; /* Fit within the button */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Button -->
+    <button class="nav-button" onclick="navigateToPage()">
+        <dotlottie-player 
+            id="navLottie" 
+            src="https://lottie.host/f4833d60-09e4-4df7-8337-3ade1a605c75/NCvZ9yPuj5.lottie" 
+            autoplay="false" 
+            loop="false" 
+            background="transparent">
+        </dotlottie-player>
+    </button>
+
+    <script>
+        const navLottie = document.getElementById('navLottie');
+
+        // Wait for the Lottie player to load
+        navLottie.addEventListener('ready', () => {
+            const lottieInstance = navLottie.getLottie(); // Get Lottie instance
+            lottieInstance.stop(); // Start paused
+            
+            // Play animation on hover
+            navLottie.addEventListener('mouseenter', () => {
+                lottieInstance.setDirection(1); // Forward direction
+                lottieInstance.play();
+            });
+
+            // Reverse animation on mouse leave
+            navLottie.addEventListener('mouseleave', () => {
+                lottieInstance.setDirection(-1); // Reverse direction
+                lottieInstance.play();
+            });
+        });
+
+        // Navigate to a page when the button is clicked
+        function navigateToPage() {
+            window.location.href = "https://example.com"; // Replace with your URL
+        }
+    </script>
+
+</body>
+</html>
 
