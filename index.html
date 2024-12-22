@@ -10,7 +10,6 @@
             justify-content: center;
             align-items: center;
             background-color: #ffe4fc; 
-            /*font-family: Arial, sans-serif; /* Optional styling for text */
             margin: 0;
             padding: 0;
             height: 100%; /* Ensure the body takes up the full height of the screen */
@@ -23,78 +22,32 @@
             object-fit: contain;
             cursor: pointer;
         }
-
-        @keyframes example {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(100px); }
-            100% { transform: translateX(0); }
-        }
-
-        .animated-box {
-            width: 100px;
-            height: 100px;
-            background-color: black;
-            cursor: pointer; /* Indicate it's clickable */
-            animation-fill-mode: forwards;
-        }
-
-        /* Animation class (inactive by default) */
-        .animate {
-            animation: example 2s infinite;
-        }
-
+        /* Don't show audio controls */
         audio {
             display:none;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #000;
-            background-color: #F5D4A8;
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-    
-        .button:hover {
-            background-color: #FDC175; /* Darker blue on hover */
         }
     </style>
 </head>
 <body>
+    <!-- Set up dotlottie and autplay -->
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>    
     <dotlottie-wc 
         id="lottie" 
         src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/xDAoyeY45b.lottie"
         autoplay>
     </dotlottie-wc>
+    <!-- Set up audio -->
     <audio preload="auto" autoplay="true" src="sounds/camera-click.mp3"></audio>
+    <!-- Redirect after animation plays -->
     <script>
         const lottiePlayer = document.getElementById('lottie');
-         // Add a click event listener to start/stop the animation
-        lottiePlayer.addEventListener('click', () => {
-            console.log('Lottie clicked!');
-            lottiePlayer.play(); // Start the animation
-        });
         lottiePlayer.addEventListener('complete',() => {
             window.location.href = "https://sob505.github.io/main.html";
         });
         setTimeout(() => {
             // Redirect to the desired page after 4 sec
-            window.location.href = "https://sob505.github.io/scroll.html"; 
+            window.location.href = "https://sob505.github.io/main.html"; 
         }, 4000); 
-    </script>
-    <script>
-        // Get the box element
-        const box = document.getElementById('box');
-        // Toggle animation on click
-        box.addEventListener('click', () => {
-            box.classList.toggle('animate'); // Add/remove the 'animate' class
-        });
     </script>
 </body>
 </html>
