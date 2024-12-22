@@ -37,9 +37,12 @@
         autoplay>
     </dotlottie-wc>
     <!-- Set up audio -->
-    <audio preload="auto" autoplay="true" src="sounds/camera-click.mp3"></audio>
+    <audio id="click" preload="auto" src="sounds/camera-click.mp3"></audio>
     <!-- Redirect after animation plays -->
     <script>
+        window.onload = function() {
+            document.getElementById("click").play();
+        }
         const lottiePlayer = document.getElementById('lottie');
         lottiePlayer.addEventListener('complete',() => {
             window.location.href = "https://sob505.github.io/main.html";
