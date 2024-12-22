@@ -125,10 +125,10 @@
                     loop>
                 </dotlottie-player>
             <!-- Set up audio -->
-            <audio id="splash" preload="auto" loop="true" src="sounds/splash.mp3"></audio>
+            <audio id="splash" preload="auto" loop src="sounds/splash.mp3"></audio>
             <script>
                 const lottiePlayer = document.getElementById('lottie');
-                const audioPlayer = document.getElementById('splash);
+                const audioPlayer = document.getElementById('splash');
                 // Wait for the player to load
                 lottiePlayer.addEventListener('ready', () => {
                     const lottieInstance = lottiePlayer.getLottie(); // Get the Lottie instance
