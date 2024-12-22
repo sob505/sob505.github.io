@@ -35,14 +35,27 @@
 </head>
 <body>
 <div id="hover-animation"></div>
-<script type="module">
+ <!-- <script type="module">
     import { playAnimationWithControl } from './animationHandler.mjs';
 
     const animationUrl = 'https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/73jCeWLVkz.lottie';
     playAnimationWithControl(animationUrl, 'hover-animation');
-</script>
+</script> -->
+
+     <canvas id="canvas" width="300" height="300"></canvas>
+    <script type="module">
+      import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+      new DotLottie({
+        autoplay: true,
+        loop: true,
+        canvas: document.getElementById("canvas"),
+        src: "https://lottie.host/4db68bbd-31f6-4cd8-84eb-189de081159a/IGmMCqhzpt.lottie", // or .json file
+      });
+    </script>
     <!-- Navigation Button -->
     <button class="nav-button" onclick="navigateToPage()">
+   
         <dotlottie-web 
             id="navLottie" 
             src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/73jCeWLVkz.lottie">
