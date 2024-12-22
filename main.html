@@ -129,6 +129,7 @@
             <script>
                 const lottiePlayer = document.getElementById('lottie');
                 const audioPlayer = document.getElementById('splash');
+                audioPlayer.playbackRate = 2.0;
                 // Wait for the player to load
                 lottiePlayer.addEventListener('ready', () => {
                     const lottieInstance = lottiePlayer.getLottie(); // Get the Lottie instance
