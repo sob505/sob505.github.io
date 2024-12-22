@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation Menu Button</title>
-    <script src="https://unpkg.com/@dotlottie/web"></script>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>
     <style>
         body {
             margin: 0;
@@ -56,33 +56,34 @@
     <!-- Navigation Button -->
     <button class="nav-button" onclick="navigateToPage()">
    
-        <dotlottie-web 
+        <dotlottie-wc 
             id="navLottie" 
-            src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/73jCeWLVkz.lottie">
-        </dotlottie-web>
+            src="https://lottie.host/d9982064-5d30-46ae-9ee2-083af68aa6dc/73jCeWLVkz.lottie">
+        </dotlottie-wc>
     </button>
 
     <script>
-        const navLottie = document.getElementById('navLottie');
+        document.getElementById('navLottie').addEventListener('load', () => {
+        const navLottie = document.getElementById('navLottie').dotLottie;
 
         // Wait for the Lottie player to load
         navLottie.addEventListener('ready', () => {
-            const lottieInstance = navLottie.getLottie(); // Get Lottie instance
-            lottieInstance.stop(); // Start paused
+            //const lottieInstance = navLottie.getLottie(); // Get Lottie instance
+            navLottie.stop(); // Start paused
             
             // Play animation on hover
             navLottie.addEventListener('mouseenter', () => {
-                lottieInstance.setDirection(1); // Forward direction
-                lottieInstance.play();
+                navLottie.setDirection(1); // Forward direction
+                navLottie.play();
             });
 
             // Reverse animation on mouse leave
             navLottie.addEventListener('mouseleave', () => {
-                lottieInstance.setDirection(-1); // Reverse direction
-                lottieInstance.play();
+                navLottie.setDirection(-1); // Reverse direction
+                navLottie.play();
             });
         });
-
+        });
         // Navigate to a page when the button is clicked
         function navigateToPage() {
             window.location.href = "https://sob505.github.io/main.html"; // Replace with your URL
