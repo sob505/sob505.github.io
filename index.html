@@ -58,6 +58,7 @@
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
+                dotLottie.pause();
                 // Restart or adjust animation here after resizing is complete
                 dotLottie.resize(); // Example: Update the DotLottie instance to match the new size
                 dotLottie.play()
