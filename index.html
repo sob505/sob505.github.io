@@ -12,13 +12,17 @@
             background-color: #ffe4fc; 
             margin: 0;
             padding: 0;
-            height: 100%; /* Ensure the body takes up the full height of the screen */
+            width: 100vw;
+            height: 100vh; /* Ensure the body takes up the full height of the screen */
             overflow: hidden; /* Prevent scrolling */
         }
 
         #dotlottie-canvas {
-            width: 100vw;   /* Set width to 100% of the viewport */
-            height: 100vh;  /* Set height to 100% of the viewport */
+            margin: 0;
+            padding: 0;
+            display: block;
+            width: 100%;   /* Set width to 100% of the viewport */
+            height: 100%;  /* Set height to 100% of the viewport */
             object-fit: contain;
             cursor: pointer;
         }
