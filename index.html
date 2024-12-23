@@ -41,6 +41,19 @@
     	  src,
           autoplay:true
     	});
+
+                // Resize canvas to fit the screen
+        const resizeCanvas = () => {
+            const { innerWidth, innerHeight } = window;
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+        };
+
+        // Ensure the canvas matches the viewport size on load and resize
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Open main page
         dotLottie.addEventListener('complete',() => {
             window.location.href = "https://sob505.github.io/main.html";
         });
