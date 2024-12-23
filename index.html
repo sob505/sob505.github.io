@@ -30,21 +30,20 @@
 </head>
 <body>
     <!-- Set up dotlottie and autplay -->
+    <canvas id="dotLottie-canvas"></canvas>
     <script type="module">
     	import { DotLottie } from "https://esm.sh/@lottiefiles/dotlottie-web";
     
-    	const canvas = document.querySelector("#dotLottie-canvas");
-    	const src = "animations/Camera w Delay.lottie";
-    
+    	const canvas = document.querySelector("#dotLottie-canvas"); 
     	const dotLottie = new DotLottie({
     	  canvas,
-    	  src,
-    	  loop: true,
-    	  autoplay: true
+    	  src="animations/Camera w Delay.lottie";
     	});
+        dotlottie.addEventListener('complete',() => {
+            window.location.href = "https://sob505.github.io/main.html";
+        });
     </script>
-    <canvas id="dotLottie-canvas"></canvas>
-    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>    
+    <!--<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>    
     <dotlottie-wc 
         id="lottie" 
         src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/xDAoyeY45b.lottie"
@@ -61,7 +60,7 @@
         lottiePlayer.addEventListener('complete',() => {
             window.location.href = "https://sob505.github.io/main.html";
         });
-        setTimeout(() => {
+        /*setTimeout(() => {
             // Redirect to the desired page after 4 sec
             window.location.href = "https://sob505.github.io/main.html"; 
         }, 4000); 
