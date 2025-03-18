@@ -42,20 +42,20 @@
     
         const canvas = document.querySelector("#dotLottie-canvas"); 
         const audio = document.querySelector("#click");
-        const playButton = document.querySelector("#playButton");
+       // const playButton = document.querySelector("#playButton");
 
         const src = "https://sob505.github.io/animations/Camera%20w%20Delay.lottie";
 
         const dotLottie = new DotLottie({
             canvas,
             src,
-            autoplay: false // Prevent autoplay
+            autoplay: true // Prevent autoplay
         });
 
-        playButton.addEventListener("click", () => {
+        /*playButton.addEventListener("click", () => {
             audio.play(); // Play audio
             dotLottie.play(); // Start animation
-        });
+        });*/
 
         // Resize canvas to fit the screen
         const resizeCanvas = () => {
