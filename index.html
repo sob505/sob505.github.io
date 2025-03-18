@@ -38,15 +38,24 @@
     <!-- Set up dotlottie and autplay -->
     <canvas id="dotLottie-canvas" width="100vh" height="100vh"></canvas>
     <script type="module">
-    	import { DotLottie } from "https://esm.sh/@lottiefiles/dotlottie-web";
+        import { DotLottie } from "https://esm.sh/@lottiefiles/dotlottie-web";
     
-    	const canvas = document.querySelector("#dotLottie-canvas"); 
-        const src="https://sob505.github.io/animations/Camera%20w%20Delay.lottie";
-    	const dotLottie = new DotLottie({
-    	  canvas,
-    	  src,
-          autoplay:true
-    	});
+        const canvas = document.querySelector("#dotLottie-canvas"); 
+        const audio = document.querySelector("#click");
+        const playButton = document.querySelector("#playButton");
+
+        const src = "https://sob505.github.io/animations/Camera%20w%20Delay.lottie";
+
+        const dotLottie = new DotLottie({
+            canvas,
+            src,
+            autoplay: false // Prevent autoplay
+        });
+
+        playButton.addEventListener("click", () => {
+            audio.play(); // Play audio
+            dotLottie.play(); // Start animation
+        });
 
         // Resize canvas to fit the screen
         const resizeCanvas = () => {
