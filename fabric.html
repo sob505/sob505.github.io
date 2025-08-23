@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Embroidery Drawing with Fabric.js</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+  <style>
+    #canvas-container {
+      width: 90vw;
+      max-width: 800px;
+      margin: 20px auto;
+      user-select: none;
+    }
+
+    #dropZone {
+      display: block;
+      border: 2px dashed #d6336c;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      color: #666;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      margin: 20px auto;
+      max-width: 500px;
+    }
+
+    #dropZone:hover {
+      background-color: #f8f0f3;
+    }
+
+    #dropZone.dragover {
+      background-color: #ffe3ec;
+      border-color: #a61e4d;
+      color: #a61e4d;
+    }
+
+    #menu {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px 20px;
+      background-color: #f8f8f8;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    #menu button {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #menu button:hover {
+      background-color: #f0f0f0;
+    }
+
+    #reuploadBtn {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+<div id="menu">
+  
+  <button id="clearBtn">Clear Canvas</button>
+  <label for="colorPicker">Brush Color:</label>
+  <input type="color" id="colorPicker" value="#d6336c">
+  
+  <label for="thickness">Thickness:</label>
+  <input type="range" id="thickness" min="1" max="20" value="3">
+  
+  
+  <button id="reuploadBtn">Reupload Photo</button>
+</div>
+
+<div id="canvas-container">
+  <canvas id="embroidery-canvas"></canvas>
+</div>
+<!-- Hidden file input -->
+<input type="file" id="imageUploader" accept="image/*" style="display:none;" />
+<!-- Drag & drop zone (also clickable) -->
+<label for="imageUploader" id="dropZone">
+  <p>📂 Drag & Drop an image here<br>or click to upload</p>
+</label>
+
+<script>
+  // Set brush properties for embroidery style
+  // Initialize Fabric canvas
+  const canvas = new fabric.Canvas('embroidery-canvas');
+
+  const dashedBrush = new fabric.PencilBrush(canvas);
+  dashedBrush.color = '#d6336c';
+  dashedBrush.width = 3;
+  dashedBrush.strokeDashArray = [5, 15];  // works in Fabric.js >= 4.x
+  canvas.freeDrawingBrush = dashedBrush;
+  canvas.isDrawingMode = true;
+
+  const dropZone = document.getElementById('dropZone');
+  const uploader = document.getElementById('imageUploader');
+
+// helper function to process files (shared by input + drop)
+  function handleImageFile(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+
+  const reader = new FileReader();
+  reader.onload = function(f) {
+    fabric.Image.fromURL(f.target.result, function(img) {
+      const container = document.getElementById('canvas-container');
+      const canvasWidth = container.clientWidth;
+      const canvasHeight = window.innerHeight * 0.8;
+
+      // canvas stays fixed size
+      canvas.setWidth(canvasWidth);
+      canvas.setHeight(canvasHeight);
+
+      // scale image to fit canvas (max width/height)
+      const scaleX = canvasWidth / img.width;
+      const scaleY = canvasHeight / img.height;
+      const scale = Math.min(scaleX, scaleY);
+
+      img.scale(scale);
+
+      // center image in canvas
+      canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+        originX: 'center',
+        originY: 'center',
+        left: canvasWidth / 2,
+        top: canvasHeight / 2
+      });
+      // Hide drop zone after first successful upload
+      const dropZone = document.getElementById('dropZone');
+      dropZone.style.display = 'none';
+
+      // Show reupload button
+      const reuploadBtn = document.getElementById('reuploadBtn');
+      reuploadBtn.style.display = 'block';
+
+    });
+  };
+  reader.readAsDataURL(file);
+}
+
+// input change (click-to-upload)
+uploader.addEventListener('change', function(e) {
+  handleImageFile(e.target.files[0]);
+});
+
+// drag & drop events
+dropZone.addEventListener('dragover', function(e) {
+  e.preventDefault();
+  dropZone.classList.add('dragover');
+});
+
+dropZone.addEventListener('dragleave', function() {
+  dropZone.classList.remove('dragover');
+});
+
+dropZone.addEventListener('drop', function(e) {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  handleImageFile(file);
+});
+
+// Reupload photo
+const reuploadBtn = document.getElementById('reuploadBtn');
+reuploadBtn.addEventListener('click', () => {
+  uploader.click(); // trigger hidden file input
+});
+
+// Change brush color
+const colorPicker = document.getElementById('colorPicker');
+colorPicker.addEventListener('input', (e) => {
+  canvas.freeDrawingBrush.color = e.target.value;
+});
+
+// Change brush thickness
+const thickness = document.getElementById('thickness');
+thickness.addEventListener('input', (e) => {
+  const width = parseInt(e.target.value, 5);
+  canvas.freeDrawingBrush.width = width;
+
+  // adjust dash array proportionally
+  const dashLength = width * 2; // for example, 2x the brush width
+  const gapLength = width * 4;  // for example, 4x the brush width
+  canvas.freeDrawingBrush.strokeDashArray = [dashLength, gapLength];
+});
+
+
+// Clear canvas (removes all paths but keeps background)
+const clearBtn = document.getElementById('clearBtn');
+clearBtn.addEventListener('click', () => {
+  // remove all paths
+  canvas.getObjects().forEach(obj => {
+    if (obj.type === 'path') canvas.remove(obj);
+  });
+  canvas.renderAll();
+});
+
+</script>
+
+
+</body>
+</html>
