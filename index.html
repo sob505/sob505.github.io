@@ -12,13 +12,17 @@
             background-color: #ffe4fc; 
             margin: 0;
             padding: 0;
-            height: 100%; /* Ensure the body takes up the full height of the screen */
+            width: 100vw;
+            height: 100vh; /* Ensure the body takes up the full height of the screen */
             overflow: hidden; /* Prevent scrolling */
         }
 
-        dotlottie-wc {
-            width: 100vw;   /* Set width to 100% of the viewport */
-            height: 100vh;  /* Set height to 100% of the viewport */
+        #dotlottie-canvas {
+            margin: 0;
+            padding: 0;
+            display: block;
+            width: 100%;   /* Set width to 100% of the viewport */
+            height: 100%;  /* Set height to 100% of the viewport */
             object-fit: contain;
             cursor: pointer;
         }
@@ -29,26 +33,57 @@
     </style>
 </head>
 <body>
-    <!-- Set up dotlottie and autplay -->
-    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.3.0/dist/dotlottie-wc.js" type="module"></script>    
-    <dotlottie-wc 
-        id="lottie" 
-        src="https://lottie.host/ac8acff2-6f49-47c8-82ab-c5725815c4fd/xDAoyeY45b.lottie"
-        autoplay>
-    </dotlottie-wc>
     <!-- Set up audio -->
-    <audio preload="auto" autoplay="true" src="sounds/camera-click.mp3"></audio>
-    <!-- Redirect after animation plays -->
-    <script>
-        const lottiePlayer = document.getElementById('lottie');
-        lottiePlayer.addEventListener('complete',() => {
+    <audio id="click" autoplay src="sounds/camera-click.mp3"></audio>
+    <!-- Set up dotlottie and autplay -->
+    <canvas id="dotLottie-canvas" width="100vh" height="100vh"></canvas>
+    <script type="module">
+        import { DotLottie } from "https://esm.sh/@lottiefiles/dotlottie-web";
+    
+        const canvas = document.querySelector("#dotLottie-canvas"); 
+        const audio = document.querySelector("#click");
+       // const playButton = document.querySelector("#playButton");
+
+        const src = "https://sob505.github.io/animations/Camera%20w%20Delay.lottie";
+
+        const dotLottie = new DotLottie({
+            canvas,
+            src,
+            autoplay: true // Prevent autoplay
+        });
+
+        /*playButton.addEventListener("click", () => {
+            audio.play(); // Play audio
+            dotLottie.play(); // Start animation
+        });*/
+
+        // Resize canvas to fit the screen
+        const resizeCanvas = () => {
+            const { innerWidth, innerHeight } = window;
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+        };
+
+        // Ensure the canvas matches the viewport size on load and resize
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        window.addEventListener('resize', () => {
+            dotLottie.pause();
+            // Restart or adjust animation here after resizing is complete
+            dotLottie.resize(); // Example: Update the DotLottie instance to match the new size
+            dotLottie.play()
+        });
+        // Redirect to main page
+        dotLottie.addEventListener('complete',() => {
             window.location.href = "https://sob505.github.io/main.html";
         });
+
+        // Just in case the animation doesn't complete, use timeout to redirect site
         setTimeout(() => {
-            // Redirect to the desired page after 4 sec
+            // Redirect to the desired page after 5 sec
             window.location.href = "https://sob505.github.io/main.html"; 
-        }, 4000); 
+        }, 5000); 
     </script>
 </body>
 </html>
-
